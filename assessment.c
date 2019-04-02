@@ -14,8 +14,6 @@ the encyption/decryption to the screen*/
 #include <stdlib.h>
 #include <string.h>
 
-char Rotcipher(char input);
-char Subcipher(char input);
 
 int main()
 {
