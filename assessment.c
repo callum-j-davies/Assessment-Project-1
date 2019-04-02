@@ -19,16 +19,25 @@ int main()
 {
     int firstchoice;
     int secondchoice;
-    printf("Do you want Rotation cipher or Substitution cipher? Enter (0/1): "); 
+    printf("Do you want Rotation cipher or Substitution cipher? Enter (0/1): \n"); 
     //This will decide whether the rotaion cipher or substitution cipher is run
     scanf("%d\n", &firstchoice);
+    
     if (firstchoice==0) //This is the rotation chipher
     {
-        printf("Do you want to encrypt of decrypt? (0/1): ");  
+        printf("Do you want to encrypt of decrypt? (0/1): \n");  
         int x = scanf("%d", &secondchoice);
         if (x==0)
         {
             //runs encryption
+            int k;
+            printf("Enter encryption key: \n");
+            //This will determine how much the message is rotated
+            scanf("%d\n", k);
+            if (k < -25 || k > 25) //To make the maths easier
+            {
+                k/2;
+            }
             
         }
         if (x==1)
@@ -39,7 +48,7 @@ int main()
     }
     if (firstchoice==1) //This is the Substitution cipher
     {
-        printf("Do you want to encrypt of decrypt? (0/1): ");  
+        printf("Do you want to encrypt of decrypt? (0/1): \n");  
         int x = scanf("%d\n", &secondchoice);
         if (x==0)
         {
