@@ -61,7 +61,7 @@ int main()
                 }
                 else
                 {
-                    c = c+(k-26);
+                    c = c+(k-26); // need to edit this so a negative key will work.
                 }
                 printf("%c\n", c);
             }
