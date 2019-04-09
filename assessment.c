@@ -44,14 +44,27 @@ int main()
             }
             FILE *input;
             input = fopen("data.txt", "r");
-            //Will read from the Notepad document on my Desktop
+            //Will read from the file data.txt
             if(input == NULL) 
             {
                 perror("fopen()");
                 return;
                 //This is a safety net incase its reads from the file incorrectly
             }
-            
+            while (foef(data) == 0)
+            {
+                char c;
+                fscanf(input, "%c", c);
+                if ( (c+k) >= 97 && (c+k) <= 122)
+                {
+                    c = c+k;
+                }
+                else
+                {
+                    c = c+(k-25);
+                }
+                printf("%c\n", c);
+            }
         if (x==1)//runs decryption
         {
             
