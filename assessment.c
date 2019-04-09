@@ -37,24 +37,24 @@ int main()
             int k;
             printf("Enter encryption key [-25 to 25]: ");
             //This will determine how much the message is rotated
-            scanf("%d\n", k);
+            scanf("%d\n", &k);
             if (k < -25 || k > 25) //Accounting for input error
             {
-                k/2;
+               k = k/2;
             }
             FILE *input;
-            input = fopen("data.txt", "r");
+            input = fopen("input.txt", "r");
             //Will read from the file data.txt
             if(input == NULL) 
             {
                 perror("fopen()");
-                return;
+                return 0;
                 //This is a safety net incase its reads from the file incorrectly
             }
-            while (foef(data) == 0)
+            while (feof(input) == 0)
             {
                 char c;
-                fscanf(input, "%c", c);
+                fscanf(input, "%c", &c);
                 if ( (c+k) >= 97 && (c+k) <= 122)
                 {
                     c = c+k;
@@ -65,6 +65,7 @@ int main()
                 }
                 printf("%c\n", c);
             }
+        }
         if (x==1)//runs decryption
         {
             
@@ -75,7 +76,7 @@ int main()
     {
         printf("Do you want to encrypt of decrypt? Enter (0/1): ");  
         scanf("%d\n", &secondchoice);
-        int x =secondchoice
+        int x =secondchoice;
         if (x==0) //runs encryption
         {
             
