@@ -3,7 +3,8 @@ rotation or substitution cipher*/
 /*STEP 1:
 Type a meesage to the notepad file on desktop
 it doesnt matter whether it needs to be 
-encrypted or decrypted*/
+encrypted or decrypted
+However this message must be in 'ALL CAPS'*/
 /*STEP 2:
 The compiler will read either a 0 or 1 from the user to choose 
 Rotation of Substitution cipher*/
@@ -26,7 +27,7 @@ int main()
 {
     int firstchoice;
     int secondchoice;
-    int thirdchoice
+    int thirdchoice;
     printf("Do you want Rotation cipher or Substitution cipher? Enter (0/1): "); 
     //This will decide whether the rotaion cipher or substitution cipher is run
     scanf("%d", &firstchoice);
@@ -66,14 +67,36 @@ int main()
         {
             printf("Is encryption key known yes/no (0 or 1): ");
             scanf("%d", &thirdchoice);
-            if thirdchoice == 0
+            if (thirdchoice == 0)
             {
-                
-            }
+                int k;
+                printf("Enter encryption key: ");
+                scanf("%d", &k);
+                FILE *input;
+                input = fopen("input.txt", "r");
+                //Will read from the file data.txt
+                if(input == NULL) 
+                {
+                    perror("fopen()");
+                    return 0;
+                    //This is a safety net incase its reads from the file incorrectly
+                }
+                while (feof(input) == 0)
+                {
+                    char c;
+                    fscanf(input, "%c", &c);
+                    if ( (c+k) >= 'A' && (c+k) <= 'Z')
+                    {
+                        c = (c-k);
+                    }
+                    printf("%c\n", c); 
+                }
             
-        }
+            }
         else printf("Unknown input\n");
+        }
     }
+
     if (firstchoice==1) //This is the Substitution cipher
     {
         printf("Do you want to encrypt of decrypt? Enter (0/1): ");  
