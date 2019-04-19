@@ -65,12 +65,13 @@ int main()
         }
         if (x==1)//runs decryption
         {
-            printf("Is encryption key known yes/no (0 or 1): ");
+            printf("Is encryption key known? yes/no (0 or 1): ");
+            //note key can only be between 0 and 26
             scanf("%d", &thirdchoice);
             if (thirdchoice == 0)
             {
                 int k;
-                printf("Enter encryption key: ");
+                printf("Enter encryption key [0-26]: ");
                 scanf("%d", &k);
                 FILE *input;
                 input = fopen("input.txt", "r");
@@ -88,6 +89,10 @@ int main()
                     if ( (c+k) >= 'A' && (c+k) <= 'Z')
                     {
                         c = (c-k);
+                        if (c < 'A')
+                        {
+                            c += 26;
+                        }
                     }
                     printf("%c\n", c); 
                 }
