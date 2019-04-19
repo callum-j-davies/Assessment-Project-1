@@ -96,32 +96,34 @@ int main()
                     }
                     printf("%c\n", c); 
                 }
-            else printf("Unknown input\n");
-            }
+            }    
             if (thirdchoice == 1)
             {
-                for (int i; i >= 26; i++)
+                int i = 0;
+                FILE *input;
+                input = fopen("input.txt", "r");
+                //Will read from the file data.txt
+                if(input == NULL) 
                 {
-                    FILE *input;
-                    input = fopen("input.txt", "r");
-                    //Will read from the file data.txt
-                    if(input == NULL) 
-                    {
-                        perror("fopen()");
-                        return 0;
-                    }
-                    while (feof(input) == 0)
+                    perror("fopen()");
+                    return 0;
+                }
+                while (feof(input) == 0)
+                {
+                    for (i = 0 ; i <= 26; i++)
                     {
                         char c;
                         fscanf(input, "%c", &c);
-                        
-                        printf("%c\n", c); 
+                        c = c - i;
+                        if (c < 'A')
+                        {
+                            c += 26;
+                        }
                     }
-            else printf("Unknown input\n");
-            }    
+                        printf("%c", c); 
                 }
-            }
             else printf("Unknown input\n");
+            }
         }
     }
 
