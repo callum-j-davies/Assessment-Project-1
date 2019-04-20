@@ -86,7 +86,7 @@ int main()
                 {
                     char c;
                     fscanf(input, "%c", &c);
-                    if ( (c+k) >= 'A' && (c+k) <= 'Z')
+                    if (c >= 'A' && c <= 'Z')
                     {
                         c = (c-k);
                         if (c < 'A')
@@ -94,23 +94,22 @@ int main()
                             c += 26;
                         }
                     }
-                    printf("%c\n", c); 
+                    printf("%c", c); 
                 }
             }    
             if (thirdchoice == 1)
             {
-                int i = 0;
+                int i = 0; //i is a counter
                 FILE *input;
                 input = fopen("input.txt", "r");
-                //Will read from the file data.txt
                 if(input == NULL) 
                 {
                     perror("fopen()");
                     return 0;
                 }
-                while (feof(input) == 0)
+                for (i = 0; i < 27; i++)
                 {
-                    for (i = 0 ; i <= 26; i++)
+                    while (feof(input) == 0)
                     {
                         char c;
                         fscanf(input, "%c", &c);
@@ -119,10 +118,13 @@ int main()
                         {
                             c += 26;
                         }
-                    }
                         printf("%c", c); 
+                    }
                 }
-            else printf("Unknown input\n");
+            }
+            if (thirdchoice != 1 || thirdchoice != 0)
+            {
+                printf("Unknown input\n");
             }
         }
     }
@@ -140,9 +142,12 @@ int main()
         {
             
         }
-        else printf("Unknown input\n");
     }
-    else printf("Unknown input\n");
+    
+    if (firstchoice != 0 || firstchoice != 1)
+    {
+        printf("Unknown input\n");
+    }
     return 0;
 }
 
