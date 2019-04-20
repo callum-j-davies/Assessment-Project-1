@@ -36,8 +36,7 @@ int main()
     {
         printf("Do you want to encrypt of decrypt? Enter (0/1): ");  
         scanf("%d", &secondchoice);
-        int x = secondchoice;
-        if (x==0) //runs encryption
+        if (secondchoice == 0) //runs encryption
         {
             int k;
             printf("Enter encryption key [0 to 26]: ");
@@ -62,8 +61,9 @@ int main()
                 }
                 printf("%c\n", c);
             }
+            printf("\n");
         }
-        if (x==1)//runs decryption
+        if (secondchoice == 1)//runs decryption
         {
             printf("Is encryption key known? yes/no (0 or 1): ");
             //note key can only be between 0 and 26
@@ -96,6 +96,7 @@ int main()
                     }
                     printf("%c", c); 
                 }
+                printf("\n");
             }    
             if (thirdchoice == 1)
             {
@@ -121,11 +122,16 @@ int main()
                         printf("%c", c); 
                     }
                 }
+                printf("\n");
             }
-            if (thirdchoice != 1 || thirdchoice != 0)
+            if (thirdchoice != 0 && thirdchoice != 1)
             {
                 printf("Unknown input\n");
             }
+        }
+        if (secondchoice != 0 && secondchoice != 1)
+        {
+            printf("Unknown input\n");
         }
     }
 
@@ -144,7 +150,7 @@ int main()
         }
     }
     
-    if (firstchoice != 0 || firstchoice != 1)
+    if (firstchoice != 0 && firstchoice != 1)
     {
         printf("Unknown input\n");
     }
