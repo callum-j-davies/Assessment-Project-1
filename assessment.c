@@ -100,7 +100,8 @@ int main()
             }    
             if (thirdchoice == 1)
             {
-                int i = 0; //i is a counter
+                int d, x; //d is the difference between some letter either
+                //'I' or 'A'
                 FILE *input;
                 input = fopen("input.txt", "r");
                 if(input == NULL) 
@@ -108,20 +109,20 @@ int main()
                     perror("fopen()");
                     return 0;
                 }
-                for (i = 0; i < 27; i++)
-                {
                     while (feof(input) == 0)
                     {
+                        char letter[500]; 
+                        char fgets(char *letter, int, FILE *input);
                         char c;
                         fscanf(input, "%c", &c);
-                        c = c - i;
+                        x = letter[500];
+                        c = c - d;
                         if (c < 'A')
                         {
                             c += 26;
                         }
                         printf("%c", c); 
                     }
-                }
                 printf("\n");
             }
             if (thirdchoice != 0 && thirdchoice != 1)
@@ -139,14 +140,13 @@ int main()
     {
         printf("Do you want to encrypt of decrypt? Enter (0/1): ");  
         scanf("%d", &secondchoice);
-        int x =secondchoice;
-        if (x==0) //runs encryption
+        if (secondchoice == 0) //runs encryption
         {
             
         }
-        if (x==1) //runs decryption
+        if (secondchoice == 1) //runs decryption
         {
-            
+
         }
     }
     
