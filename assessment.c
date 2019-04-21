@@ -100,8 +100,8 @@ int main()
             }    
             if (thirdchoice == 1)
             {
-                int d, x; //d is the difference between some letter either
-                //'I' or 'A'
+                int d, d1, x=0; //d and d1 is the difference between some letter either
+                //'I' or 'A' explained on line 119. x is a counter for the array
                 FILE *input;
                 input = fopen("input.txt", "r");
                 if(input == NULL) 
@@ -111,11 +111,19 @@ int main()
                 }
                     while (feof(input) == 0)
                     {
-                        char letter[500]; 
-                        char fgets(char *letter, int, FILE *input);
+                        char message[1024]; 
+                        char fgets(message, 1024, input.txt);
                         char c;
                         fscanf(input, "%c", &c);
-                        x = letter[500];
+                        if (message[x-1] == ' ' && message[x] > 'A' && message[x] < 'Z' && message[x+1] == ' ')
+                        /* tests for a single letter in message
+                        as this can only be an 'A' or an 'I'
+                        as these are the only two letters in the English
+                        language that appear as a single letter */
+                        {
+                            d = message[x] - 'A';
+                            d1 = message [x] - 'I';
+                        }
                         c = c - d;
                         if (c < 'A')
                         {
