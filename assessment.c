@@ -56,19 +56,20 @@ int main()
             }
             while (feof(input) == 0)
             {
-                char c;
+                char c, c1;
                 fscanf(input, "%c", &c);
+                c1 = c;
                 if (c >= 'A' && c <= 'Z')
                 {
-                    c = c+k;
+                    c = c+k; //applies the encryption
                 }
-                if ( (c+k) > 'Z')
+                if ( (c+k) > '[')
                 {
-                    c = c - 26;
+                    c = c - 26; // loops the encryption back to 'A'
                 }
-                if (c < 'A' && c > 'Z')
+                if (c1 < 'A' || c1 > 'Z')
                 {
-                    c = c;
+                    c = c1; // anything outside of 'A' to 'Z' will remain unchanged
                 }
                 printf("%c", c);
                 fprintf(output, "%c", c);
