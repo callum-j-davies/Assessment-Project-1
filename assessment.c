@@ -25,23 +25,65 @@ i wanted to make adjustments to my code*/
 
 int main()
 {
-    int firstchoice;
-    int secondchoice;
-    int thirdchoice;
-    printf("Do you want Rotation cipher or Substitution cipher? Enter (0/1): "); 
-    //This will decide whether the rotaion cipher or substitution cipher is run
+    int firstchoice; // decides what code is run
+    printf("-------CIPHER-------\n");
+    printf("Rotation - Encryption (1)\n");
+    printf("Rotation - Decryption [Key Known] (2)\n");
+    printf("Rotation - Decryption [Key Unknown] (3)\n");
+    printf("Substitution - Encryption (4)\n");
+    printf("Substitution - Decryption (5)\n");
+    printf("Your Choice: ");
+    //This will decide what code is run
     scanf("%d", &firstchoice);
     
-    if (firstchoice==0) //This is the Rotation chipher
-    {
-        printf("Do you want to encrypt of decrypt? Enter (0/1): ");  
-        scanf("%d", &secondchoice);
-        if (secondchoice == 0) //runs encryption
+    /*         ROTATION CIPHER             */
+        if (firstchoice == 1) //runs encryption
         {
             int k;
             printf("Enter encryption key [0 to 26]: ");
             //This will determine how much the message is rotated
             scanf("%d", &k);
+            FILE *input;
+            FILE *output;
+            input = fopen("input.txt", "r");
+            output = fopen("output.txt", "w");
+            //Will read from the file data.txt
+            if(input == NULL) 
+            {
+                perror("fopen()");
+                return 0;
+                //This is a safety net incase its reads from the file incorrectly
+            }
+            while (feof(input) == 0)
+            {
+                char c;
+                fscanf(input, "%c", &c);
+                if (c >= 'A' && c <= 'Z')
+                {
+                    c = c+k;
+                }
+                if ( (c+k) > 'Z')
+                {
+                    c = c - 26;
+                }
+                if (c < 'A' && c > 'Z')
+                {
+                    c = c;
+                }
+                printf("%c", c);
+                fprintf(output, "%c", c);
+            }
+            printf("\n");
+        }
+        if (firstchoice == 2)//runs decryption
+        {
+            int k;
+            printf("\n\nWhat is the decryption key [0-26]: ");
+            scanf("%d", &k);
+            if (k < 0 || k > 26)
+            {
+                printf("Unkown Input\n");
+            }
             FILE *input;
             input = fopen("input.txt", "r");
             //Will read from the file data.txt
@@ -55,110 +97,65 @@ int main()
             {
                 char c;
                 fscanf(input, "%c", &c);
-                if ( (c+k) >= 'A' && (c+k) <= 'Z')
+                if (c >= 'A' && c <= 'Z')
                 {
-                    c = c+k;
+                    c = (c-k);
+                    if (c < 'A')
+                    {
+                        c += 26;
+                    }
                 }
-                printf("%c\n", c);
+                printf("%c", c); 
+            }
+            printf("\n");
+        }   
+        if (firstchoice == 3)
+        {
+            int d, d1, x=0; //d and d1 is the difference between some letter either
+            //'I' or 'A' explained on line 119. x is a counter for the array
+            FILE *input;
+            input = fopen("input.txt", "r");
+            if(input == NULL) 
+            {
+                perror("fopen()");
+                return 0;
+            }
+            while (feof(input) == 0)
+            {
+                char message[1024]; 
+                fgets(message, 1024, input);
+                char c;
+                fscanf(input, "%c", &c);
+                if (message[x-1] == ' ' && message[x] > 'A' && message[x] < 'Z' && message[x+1] == ' ')
+                /* tests for a single letter in message
+                as this can only be an 'A' or an 'I'
+                as these are the only two letters in the English
+                language that appear as a single letter */
+                {
+                    d = message[x] - 'A';
+                    d1 = message [x] - 'I';
+                }
+                c = c - d;
+                if (c < 'A')
+                    {
+                        c += 26;
+                    }
+                    printf("%c", c); 
             }
             printf("\n");
         }
-        if (secondchoice == 1)//runs decryption
+        
+        /*      SUBSTITUTION CIPHER     */      
+        if (firstchoice == 4) 
         {
-            printf("Is encryption key known? yes/no (0 or 1): ");
-            //note key can only be between 0 and 26
-            scanf("%d", &thirdchoice);
-            if (thirdchoice == 0)
-            {
-                int k;
-                printf("Enter encryption key [0-26]: ");
-                scanf("%d", &k);
-                FILE *input;
-                input = fopen("input.txt", "r");
-                //Will read from the file data.txt
-                if(input == NULL) 
-                {
-                    perror("fopen()");
-                    return 0;
-                    //This is a safety net incase its reads from the file incorrectly
-                }
-                while (feof(input) == 0)
-                {
-                    char c;
-                    fscanf(input, "%c", &c);
-                    if (c >= 'A' && c <= 'Z')
-                    {
-                        c = (c-k);
-                        if (c < 'A')
-                        {
-                            c += 26;
-                        }
-                    }
-                    printf("%c", c); 
-                }
-                printf("\n");
-            }    
-            if (thirdchoice == 1)
-            {
-                int d, d1, x=0; //d and d1 is the difference between some letter either
-                //'I' or 'A' explained on line 119. x is a counter for the array
-                FILE *input;
-                input = fopen("input.txt", "r");
-                if(input == NULL) 
-                {
-                    perror("fopen()");
-                    return 0;
-                }
-                    while (feof(input) == 0)
-                    {
-                        char message[1024]; 
-                        char fgets(message, 1024, input.txt);
-                        char c;
-                        fscanf(input, "%c", &c);
-                        if (message[x-1] == ' ' && message[x] > 'A' && message[x] < 'Z' && message[x+1] == ' ')
-                        /* tests for a single letter in message
-                        as this can only be an 'A' or an 'I'
-                        as these are the only two letters in the English
-                        language that appear as a single letter */
-                        {
-                            d = message[x] - 'A';
-                            d1 = message [x] - 'I';
-                        }
-                        c = c - d;
-                        if (c < 'A')
-                        {
-                            c += 26;
-                        }
-                        printf("%c", c); 
-                    }
-                printf("\n");
-            }
-            if (thirdchoice != 0 && thirdchoice != 1)
-            {
-                printf("Unknown input\n");
-            }
-        }
-        if (secondchoice != 0 && secondchoice != 1)
-        {
-            printf("Unknown input\n");
-        }
-    }
 
-    if (firstchoice==1) //This is the Substitution cipher
-    {
-        printf("Do you want to encrypt of decrypt? Enter (0/1): ");  
-        scanf("%d", &secondchoice);
-        if (secondchoice == 0) //runs encryption
+        }
+        if (firstchoice == 5)
         {
             
         }
-        if (secondchoice == 1) //runs decryption
-        {
-
-        }
-    }
     
-    if (firstchoice != 0 && firstchoice != 1)
+    if (firstchoice != 1 && firstchoice != 2 && firstchoice != 3 && firstchoice != 4 && firstchoice != 5)
     {
         printf("Unknown input\n");
     }
