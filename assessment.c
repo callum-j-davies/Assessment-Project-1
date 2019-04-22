@@ -120,7 +120,7 @@ int main()
         if (firstchoice == 3)
         {
             int d, d1, x=0; /*d and d1 is the difference between some letter either
-            'I' or 'A' explained on line 119. x is a counter for the array */
+            'I' or 'A' repectively*/
             FILE *input;
             FILE *output;
             input = fopen("input.txt", "r");
@@ -134,13 +134,14 @@ int main()
             {
                 char message[1024]; 
                 fgets(message, 1024, input);
-                char c;
+                char c, c1;
                 fscanf(input, "%c", &c);
+                c1 = c;
                 if (message[x-1] == ' ' && message[x] > 'A' && message[x] < 'Z' && message[x+1] == ' ')
                 /* tests for a single letter in message
                 as this can only be an 'A' or an 'I'
-                as these are the only two letters in the English
-                language that appear as a single letter */
+                as these are the only two "words" in the English
+                language that appear as a single letter*/ 
                 {
                     d = message[x] - 'A';
                     d1 = message [x] - 'I';
@@ -148,7 +149,31 @@ int main()
                 c = c - d;
                 if (c < 'A')
                 {
-                    c += 26;
+                    c = c + 26;
+                }
+                if ( (c1-d) < 'A') // allows decryption to loop back to 'Z'
+                {
+                    c = c + 26;
+                }
+                if (c1 < 'A' || c1 > 'Z')
+                {
+                    c = c1; // anything outside of 'A' to 'Z' will remain unchanged
+                }
+                printf("%c", c);
+                fprintf(output, "%c", c);
+                printf("\n");
+                c = c - d1;
+                if (c < 'A')
+                {
+                    c = c + 26;
+                }
+                if ( (c1-d1) < 'A') // allows decryption to loop back to 'Z'
+                {
+                    c = c + 26;
+                }
+                if (c1 < 'A' || c1 > 'Z')
+                {
+                    c = c1; // anything outside of 'A' to 'Z' will remain unchanged
                 }
                 printf("%c", c);
                 fprintf(output, "%c", c);
