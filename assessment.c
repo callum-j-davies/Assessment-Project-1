@@ -1,5 +1,7 @@
 /*This code is an ecryption and decryption software that will work for a
 rotation or substitution cipher*/
+/*Any input errors will return a '0' while any file reading/writing errors 
+will return a 1 */
 /*STEP 1:
 Type a meesage to the notepad file on desktop
 it doesnt matter whether it needs to be 
@@ -43,15 +45,25 @@ int main()
             printf("Enter encryption key [0 to 26]: ");
             //This will determine how much the message is rotated
             scanf("%d", &k);
+            if (k < 0 || k > 26)
+            {
+                printf("Unknown Input\n");
+                return 0;
+            }
+            printf("\n"); // this is for formatting
             FILE *input;
             FILE *output;
             input = fopen("input.txt", "r"); //Will read from the file input.txt
             output = fopen("output.txt", "w"); //Will write to the file output.txt
-            if(input == NULL) 
+            if(input == NULL)  //This is a safety net incase its reads from the file incorrectly
             {
                 perror("fopen()");
-                return 0;
-                //This is a safety net incase its reads from the file incorrectly
+                return 1;
+            }
+            if (output == NULL) //This is a safety net incase its reads from the file incorrectly
+            {
+                perror("fopen()");
+                return 1;
             }
             while (feof(input) == 0)
             {
@@ -60,9 +72,9 @@ int main()
                 c1 = c;
                 if (c >= 'A' && c <= 'Z')
                 {
-                    c = c+k; //applies the encryption
+                    c = c + k; //applies the encryption
                 }
-                if ( (c+k) > '[')
+                if ( (c1+k) >= '[')
                 {
                     c = c - 26; // loops the encryption back to 'A'
                 }
@@ -81,11 +93,12 @@ int main()
             int k;
             printf("\nWhat is the decryption key [0-26]: ");
             scanf("%d", &k);
-            printf("\n");
             if (k < 0 || k > 26)
             {
                 printf("Unkown Input\n");
+                return 0;
             }
+            printf("\n");
             FILE *input;
             FILE *output;
             input = fopen("input.txt", "r");
@@ -93,7 +106,12 @@ int main()
             if(input == NULL) 
             {
                 perror("fopen()");
-                return 0;
+                return 1;
+            }
+            if (output == NULL)
+            {
+                perror("fopen()");
+                return 1;
             }
             while (feof(input) == 0)
             {
@@ -119,64 +137,44 @@ int main()
         }      
         if (firstchoice == 3)
         {
-            int d, d1, x=0; /*d and d1 is the difference between some letter either
-            'I' or 'A' repectively*/
+            int i; //i is a counter
             FILE *input;
             FILE *output;
             input = fopen("input.txt", "r");
-            output = fopen("input.txt", "w");
+            output = fopen("output.txt", "w");
             if(input == NULL) 
             {
                 perror("fopen()");
-                return 0;
+                return 1;
             }
-            while (feof(input) == 0)
+            if (output == NULL)
             {
-                char message[1024]; 
-                fgets(message, 1024, input);
-                char c, c1;
-                fscanf(input, "%c", &c);
-                c1 = c;
-                if (message[x-1] == ' ' && message[x] > 'A' && message[x] < 'Z' && message[x+1] == ' ')
-                /* tests for a single letter in message
-                as this can only be an 'A' or an 'I'
-                as these are the only two "words" in the English
-                language that appear as a single letter*/ 
+                perror("fopen()");
+                return 1;
+            }
+
+            for (i=0; i<26; i++) //Will print every possible decryption
+            {
+                while (feof(input) == 0)
                 {
-                    d = message[x] - 'A';
-                    d1 = message [x] - 'I';
-                }
-                c = c - d;
-                if (c < 'A')
-                {
-                    c = c + 26;
-                }
-                if ( (c1-d) < 'A') // allows decryption to loop back to 'Z'
-                {
-                    c = c + 26;
-                }
-                if (c1 < 'A' || c1 > 'Z')
-                {
-                    c = c1; // anything outside of 'A' to 'Z' will remain unchanged
-                }
-                printf("%c", c);
-                fprintf(output, "%c", c);
-                printf("\n");
-                c = c - d1;
-                if (c < 'A')
-                {
-                    c = c + 26;
-                }
-                if ( (c1-d1) < 'A') // allows decryption to loop back to 'Z'
-                {
-                    c = c + 26;
-                }
-                if (c1 < 'A' || c1 > 'Z')
-                {
-                    c = c1; // anything outside of 'A' to 'Z' will remain unchanged
-                }
-                printf("%c", c);
-                fprintf(output, "%c", c);
+                    char c, c1;
+                    fscanf(input, "%c", &c);
+                    c1 = c;
+                    if (c >= 'A' && c <= 'Z')
+                    {
+                        c = c - i;
+                    }
+                    if ( (c1-i) < 'A' )
+                    {
+                        c = c + 26;
+                    }
+                    if (c1 <'A' || c1 > 'Z')
+                    {
+                        c = c;
+                    }
+                    printf("%c", c);
+                    fprintf(output, "%c", c);
+                }   
             }
             printf("\n\n");
         }
