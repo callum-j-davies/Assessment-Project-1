@@ -1,7 +1,7 @@
 /*This code is an ecryption and decryption software that will work for a
 rotation or substitution cipher*/
 /*Any input errors will return a '0' while any file reading/writing errors 
-will return a 1 */
+will return '1'*/
 /*STEP 1:
 Type a meesage to the notepad file on desktop
 it doesnt matter whether it needs to be 
@@ -21,6 +21,7 @@ the encyption/decryption to the screen*/
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <time.h>
 /*Not all of these libraries are used but i have included them incase
 i wanted to make adjustments to my code*/
 
@@ -185,13 +186,14 @@ int main()
             printf("\n");
             int counter;
             int num;
-            int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+            char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
             srand(time(0));
             for (counter = 0; counter < 26; counter ++)
-            //generates a random set of numbers  [0,25] every tme the code is run
+            //generates a random set of numbers  [65,90] every tme the code is run
+            //this number is assigned to each letter [A,Z]
             {
-                num = rand() % 26;
-                printf("%d, ", n);
+                num = rand() % 26 + 65;
+                printf("%d, ", num);
                 if (counter == 0)
                     a = num;
                 if (counter == 1)
@@ -245,6 +247,7 @@ int main()
                 if (counter == 25)
                     z = num;
             }
+        printf("\n");
         FILE *input;
         FILE *output;
         input = fopen("input.txt", "r");
@@ -259,10 +262,68 @@ int main()
             perror("fopen()");
             return 1;
         }
-        while (foef(input == 0))
+        while (feof(input) == 0)
         {
-            char letter, letter1; // 'letter' is replacing 'c' as this variable name has been used
-            fscanf("%c", letter);
+            char letter; // 'letter' is replacing 'c' as this variable name has been used
+            fscanf(input, "%c", &letter);
+            if (letter < 'A' || letter > 'Z')
+            {
+                letter = letter;
+            }
+            if (letter == 'A')
+                letter = a;
+            if (letter == 'B')
+                letter = b;
+            if (letter == 'C')
+                letter = c;
+            if (letter == 'D')
+                letter = d;
+            if (letter == 'E')
+                letter = e;
+            if (letter == 'F')
+                letter = f;
+            if (letter == 'G')
+                letter = g;
+            if (letter == 'H')
+                letter = h;
+            if (letter == 'I')
+                letter = i;
+            if (letter == 'J')
+                letter = j;
+            if (letter == 'K')
+                letter = k;
+            if (letter == 'L')
+                letter = l;
+            if (letter == 'M')
+                letter = m;
+            if (letter == 'N')
+                letter = n;
+            if (letter == 'O')
+                letter = o;
+            if (letter == 'P')
+                letter = p;
+            if (letter == 'Q')
+                letter = q;
+            if (letter == 'R')
+                letter = r;
+            if (letter == 'S')
+                letter = s;
+            if (letter == 'T')
+                letter = t;
+            if (letter == 'U')
+                letter = u;
+            if (letter == 'V')
+                letter = v;
+            if (letter == 'W')
+                letter = w;
+            if (letter == 'X')
+                letter = x;
+            if (letter == 'Y')
+                letter = y;
+            if (letter == 'Z')
+                letter = z;
+            printf("%c", letter);
+            fprintf(output, "%c", letter);
         }
         printf("\n\n");
         }
