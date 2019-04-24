@@ -187,6 +187,7 @@ int main()
             int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
             srand(time(0));
             for (counter = 1; counter < 27; counter ++)
+            //generates a random set of numbers  [1,26] every tme the code is run
             {
                 n = rand() % 26;
                 printf("%d, ", n);
