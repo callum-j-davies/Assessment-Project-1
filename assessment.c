@@ -153,7 +153,7 @@ int main()
                 return 1;
             }
 
-            for (i=0; i<26; i++) //Will print every possible decryption
+            for (i = 1; i <= 26; i++) //Will print every possible decryption
             {
                 while (feof(input) == 0)
                 {
@@ -182,7 +182,15 @@ int main()
     /*      SUBSTITUTION CIPHER     */      
         if (firstchoice == 4) 
         {
-
+            printf("\n");
+            int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+            a = rand() % 26, b = rand() % 26, c = rand() % 26, d = rand() % 26, e = rand() % 26;
+            f = rand() % 26, g = rand() % 26, h = rand() % 26, i = rand() % 26, j = rand() % 26;
+            k = rand() % 26, l = rand() % 26, m = rand() % 26, n = rand() % 26, o = rand() % 26;
+            p = rand() % 26, q = rand() % 26, r = rand() % 26, s = rand() % 26, t = rand() % 26;
+            u = rand() % 26, v = rand() % 26, w = rand() % 26, x = rand() % 26, y = rand() % 26;
+            z = rand() % 26;
+            printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n", a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z);
         }
         if (firstchoice == 5)
         {
