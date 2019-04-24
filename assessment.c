@@ -184,14 +184,86 @@ int main()
         {
             printf("\n");
             int counter;
+            int num;
             int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
             srand(time(0));
-            for (counter = 1; counter < 27; counter ++)
-            //generates a random set of numbers  [1,26] every tme the code is run
+            for (counter = 0; counter < 26; counter ++)
+            //generates a random set of numbers  [0,25] every tme the code is run
             {
-                n = rand() % 26;
+                num = rand() % 26;
                 printf("%d, ", n);
+                if (counter == 0)
+                    a = num;
+                if (counter == 1)
+                    b = num;
+                if (counter == 2)
+                    c = num;
+                if (counter == 3)
+                    d = num;
+                if (counter == 4)
+                    e = num;
+                if (counter == 5)
+                    f = num;
+                if (counter == 6)
+                    g = num;
+                if (counter == 7)
+                    h = num;
+                if (counter == 8)
+                    i = num;
+                if (counter == 9)
+                    j = num;
+                if (counter == 10)
+                    k = num;
+                if (counter == 11)
+                    l = num;
+                if (counter == 12)
+                    m = num;
+                if (counter == 13)
+                    n = num;
+                if (counter == 14)
+                    o = num;
+                if (counter == 15)
+                    p = num;
+                if (counter == 16)
+                    q = num;
+                if (counter == 17)
+                    r = num;
+                if (counter == 18)
+                    s = num;
+                if (counter == 19)
+                    t = num;
+                if (counter == 20)
+                    u = num;
+                if (counter == 21)
+                    v = num;
+                if (counter == 22)
+                    w = num;
+                if (counter == 23)
+                    x = num;
+                if (counter == 24)
+                    y = num;
+                if (counter == 25)
+                    z = num;
             }
+        FILE *input;
+        FILE *output;
+        input = fopen("input.txt", "r");
+        output = fopen("output.txt", "w");
+        if(input == NULL) 
+        {
+            perror("fopen()");
+            return 1;
+        }
+        if (output == NULL)
+        {
+            perror("fopen()");
+            return 1;
+        }
+        while (foef(input == 0))
+        {
+            char letter, letter1; // 'letter' is replacing 'c' as this variable name has been used
+            fscanf("%c", letter);
+        }
         printf("\n\n");
         }
         if (firstchoice == 5)
