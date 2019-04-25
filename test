@@ -65,3 +65,7 @@ a = rand() % 26, b = rand() % 26, c = rand() % 26, d = rand() % 26, e = rand() %
             u = rand() % 26, v = rand() % 26, w = rand() % 26, x = rand() % 26, y = rand() % 26;
             z = rand() % 26;
             printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n", a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z);
+            
+            
+            
+            

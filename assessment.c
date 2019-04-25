@@ -190,7 +190,8 @@ int main()
             srand(time(0));
             for (counter = 0; counter < 26; counter ++)
             //generates a random set of numbers  [65,90] every tme the code is run
-            //this number is assigned to each letter [A,Z]
+            //this number is assigned to each variable [a,z]
+            //and then assigned to each letter in the input file as its substitution
             {
                 num = rand() % 26 + 65;
                 printf("%d, ", num);
