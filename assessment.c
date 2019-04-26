@@ -140,7 +140,8 @@ int main()
         }      
         if (firstchoice == 3)
         {
-            int i; //i is a counter
+            printf("\n");
+            int i = 0; //i is a counter
             FILE *input;
             FILE *output;
             input = fopen("input.txt", "r");
@@ -156,14 +157,14 @@ int main()
                 return 1;
             }
 
-            for (i = 1; i <= 26; i++) //Will print every possible decryption
+            while (i < 26) //Will print every possible decryption as a key of '26' is the same as a key of '0'
             {
                 while (feof(input) == 0)
                 {
                     char c, c1;
                     fscanf(input, "%c", &c);
                     c1 = c;
-                    if (c >= 'A' && c <= 'Z')
+                    if (c1 >= 'A' && c1 <= 'Z')
                     {
                         c = c - i;
                     }
@@ -173,11 +174,12 @@ int main()
                     }
                     if (c1 <'A' || c1 > 'Z')
                     {
-                        c = c;
+                        c = c1;
                     }
                     printf("%c", c);
                     fprintf(output, "%c", c);
-                }   
+                }
+            i++;
             }
             printf("\n\n");
         }
