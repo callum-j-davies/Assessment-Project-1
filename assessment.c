@@ -182,73 +182,45 @@ int main()
         }
         
     /*      SUBSTITUTION CIPHER     */      
-        if (firstchoice == 4) 
-        {
-            printf("\n");
-            int counter;
-            int num;
-            char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
-            srand(time(0));
-            for (counter = 0; counter < 26; counter ++)
-            //generates a random set of numbers  [65,90] every tme the code is run
-            //this number is assigned to each variable [a,z]
-            //and then assigned to each letter in the input file as its substitution
-            {
-                num = rand() % 26 + 65; //Adding 65 so that the numbers correspond with 'A' to 'Z' in the ascii table
-                printf("%d, ", num); //used to see what the random numbers are for testing
-                if (counter == 0)
-                    a = num;
-                if (counter == 1)
-                    b = num;
-                if (counter == 2)
-                    c = num;
-                if (counter == 3)
-                    d = num;
-                if (counter == 4)
-                    e = num;
-                if (counter == 5)
-                    f = num;
-                if (counter == 6)
-                    g = num;
-                if (counter == 7)
-                    h = num;
-                if (counter == 8)
-                    i = num;
-                if (counter == 9)
-                    j = num;
-                if (counter == 10)
-                    k = num;
-                if (counter == 11)
-                    l = num;
-                if (counter == 12)
-                    m = num;
-                if (counter == 13)
-                    n = num;
-                if (counter == 14)
-                    o = num;
-                if (counter == 15)
-                    p = num;
-                if (counter == 16)
-                    q = num;
-                if (counter == 17)
-                    r = num;
-                if (counter == 18)
-                    s = num;
-                if (counter == 19)
-                    t = num;
-                if (counter == 20)
-                    u = num;
-                if (counter == 21)
-                    v = num;
-                if (counter == 22)
-                    w = num;
-                if (counter == 23)
-                    x = num;
-                if (counter == 24)
-                    y = num;
-                if (counter == 25)
-                    z = num;
-            }
+    if (firstchoice == 4) 
+    {
+        printf("\n");
+        char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+        srand(time(0));
+        //generates a random set of numbers  [65,90] every tme the code is run
+        //this number is assigned to each variable [a,z]
+        //and then assigned to each letter in the input file as its substitution
+            
+        a = rand() % 26 + 65; //Adding 65 so that the numbers correspond with 'A' to 'Z' in the ascii table
+        b = rand() % 26 + 65;
+        c = rand() % 26 + 65;
+        d = rand() % 26 + 65;
+        e = rand() % 26 + 65;
+        f = rand() % 26 + 65;
+        g = rand() % 26 + 65;
+        h = rand() % 26 + 65;
+        i = rand() % 26 + 65;
+        j = rand() % 26 + 65;
+        k = rand() % 26 + 65;
+        l = rand() % 26 + 65;
+        l = rand() % 26 + 65;
+        m = rand() % 26 + 65;
+        n = rand() % 26 + 65;
+        o = rand() % 26 + 65;
+        p = rand() % 26 + 65;
+        q = rand() % 26 + 65;
+        r = rand() % 26 + 65;
+        s = rand() % 26 + 65;
+        t = rand() % 26 + 65;
+        u = rand() % 26 + 65;
+        v = rand() % 26 + 65;
+        w = rand() % 26 + 65;
+        x = rand() % 26 + 65;
+        y = rand() % 26 + 65;
+        z = rand() % 26 + 65;
+        printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n", a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z);
+        //used to see what the random numbers are for testing
+                
         printf("\n");
         FILE *input;
         FILE *output;
@@ -271,109 +243,109 @@ int main()
             letter1 = letter;
             if (letter < 'A' || letter > 'Z')
             {
-                letter = letter1;
+            letter = letter1;
             }
-            if (letter == 'A')
+            if (letter1 == 'A')
             {
                 letter = a;         //letter gets assigned the first random number
             }
-            if (letter == 'B')
+            if (letter1 == 'B')
             {
                 letter = b;         //letter gets assigned the second random number
             }
-            if (letter == 'C')
+            if (letter1 == 'C')
             {
                 letter = c;         //so on...
             }
-            if (letter == 'D')
+            if (letter1 == 'D')
             {
                 letter = d;
             }
-            if (letter == 'E')
+            if (letter1 == 'E')
             {
                 letter = e;
             }
-            if (letter == 'F')
+            if (letter1 == 'F')
             {
                 letter = f;
             }
-            if (letter == 'G')
+            if (letter1 == 'G')
             {
                 letter = g;
             }
-            if (letter == 'H')
+            if (letter1 == 'H')
             {
                 letter = h;
             }
-            if (letter == 'I')
+            if (letter1 == 'I')
             {
                 letter = i;
             }
-            if (letter == 'J')
+            if (letter1 == 'J')
             {
                 letter = j;
             }
-            if (letter == 'K')
+            if (letter1 == 'K')
             {
                 letter = k;
             }
-            if (letter == 'L')
+            if (letter1 == 'L')
             {
                 letter = l;
             }
-            if (letter == 'M')
+            if (letter1 == 'M')
             {
                 letter = m;
             }
-            if (letter == 'N')
+            if (letter1 == 'N')
             {
                 letter = n;
             }
-            if (letter == 'O')
+            if (letter1 == 'O')
             {
                 letter = o;
             }
-            if (letter == 'P')
+            if (letter1 == 'P')
             {
                 letter = p;
             }
-            if (letter == 'Q')
+            if (letter1 == 'Q')
             {
                 letter = q;
             }
-            if (letter == 'R')
+            if (letter1 == 'R')
             {
                 letter = r;
             }
-            if (letter == 'S')
+            if (letter1 == 'S')
             {
                 letter = s;
             }
-            if (letter == 'T')
+            if (letter1 == 'T')
             {
                 letter = t;
             }
-            if (letter == 'U')
+            if (letter1 == 'U')
             {
                 letter = u;
             }
-            if (letter == 'V')
+            if (letter1 == 'V')
             {
                 letter = v;
             }
-            if (letter == 'W')
+            if (letter1 == 'W')
             {
                 letter = w;
             }
-            if (letter == 'X')
+            if (letter1 == 'X')
             {
                 letter = x;
             }
-            if (letter == 'Y')
+            if (letter1 == 'Y')
             {
                 letter = y;
             }
-            if (letter == 'Z')
+            if (letter1 == 'Z')
             {
                 letter = z;
             }
