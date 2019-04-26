@@ -35,7 +35,8 @@ int main()
     printf("    Rotation - Decryption [Key Known] (2)\n");
     printf("    Rotation - Decryption [Key Unknown] (3)\n");
     printf("    Substitution - Encryption (4)\n");
-    printf("    Substitution - Decryption (5)\n");
+    printf("    Substitution - Decryption [Key Known] (5)\n");
+    printf("    Substitution - Decryption [Key Unkown] (6)\n");
     printf("    Your Choice: ");
     //This will decide what code is run
     scanf("%d", &firstchoice);
@@ -44,12 +45,12 @@ int main()
         if (firstchoice == 1) //runs encryption
         {
             int k;
-            printf("Enter encryption key [0 to 26]: ");
+            printf("\nEnter encryption key [0 to 26]: ");
             //This will determine how much the message is rotated
             scanf("%d", &k);
-            if (k < 0 || k > 26)
+            if (k != 0 && k != 1 && k != 2 && k != 3 && k != 4 && k != 5 && k != 6 && k != 7 && k != 8 && k != 9 && k != 10 && k != 11 && k != 12 && k != 13 && k != 14 && k != 15 && k != 16 && k != 17 && k != 18 && k != 19 && k != 20 && k != 21 && k != 22 && k != 23 && k != 24 && k != 25 && k != 26)
             {
-                printf("Unknown Input\n");
+                printf("\nUnknown Input\n\n");
                 return 0;
             }
             printf("\n"); // this is for formatting
@@ -95,7 +96,7 @@ int main()
             int k;
             printf("\nWhat is the decryption key [0-26]: ");
             scanf("%d", &k);
-            if (k < 0 || k > 26)
+            if (k != 0 && k != 1 && k != 2 && k != 3 && k != 4 && k != 5 && k != 6 && k != 7 && k != 8 && k != 9 && k != 10 && k != 11 && k != 12 && k != 13 && k != 14 && k != 15 && k != 16 && k != 17 && k != 18 && k != 19 && k != 20 && k != 21 && k != 22 && k != 23 && k != 24 && k != 25 && k != 26)
             {
                 printf("Unkown Input\n");
                 return 0;
@@ -554,14 +555,20 @@ int main()
         }
         printf("\n\n");
         }
+        
         if (firstchoice == 5)
         {
             
         }
-    
-        if (firstchoice != 1 && firstchoice != 2 && firstchoice != 3 && firstchoice != 4 && firstchoice != 5)
+        
+        if (firstchoice == 6)
         {
-            printf("Unknown input\n");
+            printf("\nThis is not currently available\n\n");
+        }
+        
+        if (firstchoice != 1 && firstchoice != 2 && firstchoice != 3 && firstchoice != 4 && firstchoice != 5 && firstchoice != 6)
+        {
+            printf("\nUnknown input\n\n");
         }
     return 0;
 }
