@@ -3,18 +3,15 @@ rotation or substitution cipher*/
 /*Any input errors will return a '0' while any file reading/writing errors 
 will return '1'*/
 /*STEP 1:
-Type a meesage to the notepad file on desktop
+Type a meesage to the input.txt file in the Assessment-Project-1 folder
 it doesnt matter whether it needs to be 
 encrypted or decrypted
 However this message must be in 'ALL CAPS'*/
 /*STEP 2:
-The compiler will read either a 0 or 1 from the user to choose 
-Rotation of Substitution cipher*/
+The compiler will read your choice from the menu screen*/
 /*STEP 3:
-the compiler will read either a 0 or 1 from the user to choose
-encryption or decryption
-This will run the respective code and print
-the encyption/decryption to the screen*/
+The final message will be printed to both the output.txt file and the
+terminal interface*/
 
 
 #include <stdio.h>
@@ -157,8 +154,11 @@ int main()
                 return 1;
             }
 
-            while (i < 26) //Will print every possible decryption as a key of '26' is the same as a key of '0'
+            for (i; i < 26; i++) //Will print every possible decryption as a key of '26' is the same as a key of '0'
             {
+                printf("Key used for Decryption: %d\n", i);
+                fprintf(output, "Key used for Decryption: %d\n", i);
+                rewind(input);
                 while (feof(input) == 0)
                 {
                     char c, c1;
@@ -179,7 +179,8 @@ int main()
                     printf("%c", c);
                     fprintf(output, "%c", c);
                 }
-            i++;
+            printf("\n\n");
+            fprintf(output, "\n\n");
             }
             printf("\n\n");
         }
@@ -565,7 +566,7 @@ int main()
         
         if (firstchoice == 6)
         {
-            printf("\nThis is not currently available\n\n");
+            printf("\nThis is currently not available\n\n");
         }
         
         if (firstchoice != 1 && firstchoice != 2 && firstchoice != 3 && firstchoice != 4 && firstchoice != 5 && firstchoice != 6)
