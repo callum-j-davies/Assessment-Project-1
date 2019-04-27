@@ -561,7 +561,66 @@ int main()
         
         if (firstchoice == 5)
         {
-            
+            char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+            printf("\nType Substitution Key for each letter:\n");
+            printf("A: ");
+            scanf("%c", a);
+            printf("\nB: ");
+            scanf("%c", b);
+            printf("\nC: ");
+            scanf("%c", c);
+            printf("\nD: ");
+            scanf("%c", d);
+            printf("\nE: ");
+            scanf("%c", e);
+            printf("\nF: ");
+            scanf("%c", f);
+            printf("\nE: ");
+            scanf("%c", e);
+            printf("\nE: ");
+            scanf("%c", e);
+            printf("\nF: ");
+            scanf("%c", f);
+            printf("\nG: ");
+            scanf("%c", g);
+            printf("\nH: ");
+            scanf("%c", h);
+            printf("\nI: ");
+            scanf("%c", i);
+            printf("\nJ: ");
+            scanf("%c", j);
+            printf("\nK: ");
+            scanf("%c", k);
+            printf("\nL: ");
+            scanf("%c", l);
+            printf("\nM: ");
+            scanf("%c", m);
+            printf("\nN: ");
+            scanf("%c", n);
+            printf("\nO ");
+            scanf("%c", o);
+            printf("\nP: ");
+            scanf("%c", p);
+            printf("\nQ: ");
+            scanf("%c", q);
+            printf("\nR: ");
+            scanf("%c", r);
+            printf("\nS: ");
+            scanf("%c", s);
+            printf("\nT: ");
+            scanf("%c", t);
+            printf("\nU: ");
+            scanf("%c", u);
+            printf("\nV: ");
+            scanf("%c", v);
+            printf("\nW: ");
+            scanf("%c", w);
+            printf("\nX: ");
+            scanf("%c", x);
+            printf("\nY: ");
+            scanf("%c", y);
+            printf("\nZ: ");
+            scanf("%c", z);
         }
         
         if (firstchoice == 6)
