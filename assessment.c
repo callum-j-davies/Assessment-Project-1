@@ -153,7 +153,6 @@ int main()
                 perror("fopen()");
                 return 1;
             }
-
             for (i; i < 26; i++) //Will print every possible decryption as a key of '26' is the same as a key of '0'
             {
                 printf("Key used for Decryption: %d\n", i);
@@ -557,70 +556,352 @@ int main()
         fprintf(output, "%c", letter);
         }
         printf("\n\n");
-        }
+    }
         
         if (firstchoice == 5)
         {
             char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
             printf("\nType Substitution Key for each letter:\n");
             printf("A: ");
-            scanf("%c", a);
-            printf("\nB: ");
-            scanf("%c", b);
-            printf("\nC: ");
-            scanf("%c", c);
-            printf("\nD: ");
-            scanf("%c", d);
-            printf("\nE: ");
-            scanf("%c", e);
-            printf("\nF: ");
-            scanf("%c", f);
-            printf("\nE: ");
-            scanf("%c", e);
-            printf("\nE: ");
-            scanf("%c", e);
-            printf("\nF: ");
-            scanf("%c", f);
-            printf("\nG: ");
-            scanf("%c", g);
-            printf("\nH: ");
-            scanf("%c", h);
-            printf("\nI: ");
-            scanf("%c", i);
-            printf("\nJ: ");
-            scanf("%c", j);
-            printf("\nK: ");
-            scanf("%c", k);
-            printf("\nL: ");
-            scanf("%c", l);
-            printf("\nM: ");
-            scanf("%c", m);
-            printf("\nN: ");
-            scanf("%c", n);
-            printf("\nO ");
-            scanf("%c", o);
-            printf("\nP: ");
-            scanf("%c", p);
-            printf("\nQ: ");
-            scanf("%c", q);
-            printf("\nR: ");
-            scanf("%c", r);
-            printf("\nS: ");
-            scanf("%c", s);
-            printf("\nT: ");
-            scanf("%c", t);
-            printf("\nU: ");
-            scanf("%c", u);
-            printf("\nV: ");
-            scanf("%c", v);
-            printf("\nW: ");
-            scanf("%c", w);
-            printf("\nX: ");
-            scanf("%c", x);
-            printf("\nY: ");
-            scanf("%c", y);
-            printf("\nZ: ");
-            scanf("%c", z);
+            scanf(" %c", &a);
+            if (a < 'A' || a > 'Z') //Input error tests
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("B: ");
+            scanf(" %c", &b);
+            if (b < 'A' || b > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("C: ");
+            scanf(" %c", &c);
+            if (c < 'A' || c > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("D: ");
+            scanf(" %c", &d);
+            if (d < 'A' || d > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("E: ");
+            scanf(" %c", &e);
+            if (e < 'A' || e > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("F: ");
+            scanf(" %c", &f);
+            if (f < 'A' || f > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("G: ");
+            scanf(" %c", &g);
+            if (g < 'A' || g > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("H: ");
+            scanf(" %c", &h);
+            if (h < 'A' || h > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("I: ");
+            scanf(" %c", &i);
+            if (i < 'A' || i > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("J: ");
+            scanf(" %c", &j);
+            if (j < 'A' || j > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("K: ");
+            scanf(" %c", &k);
+            if (k < 'A' || k > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("L: ");
+            scanf(" %c", &l);
+            if (l < 'A' || l > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("M: ");
+            scanf(" %c", &m);
+            if (m < 'A' || m > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("N: ");
+            scanf(" %c", &n);
+            if (n < 'A' || n > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("O ");
+            scanf(" %c", &o);
+            if (o < 'A' || o > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("P: ");
+            scanf(" %c", &p);
+            if (p < 'A' || p > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("Q: ");
+            scanf(" %c", &q);
+            if (q < 'A' || q > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("R: ");
+            scanf(" %c", &r);
+            if (r < 'A' || r > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("S: ");
+            scanf(" %c", &s);
+            if (s < 'A' || s > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("T: ");
+            scanf(" %c", &t);
+            if (t < 'A' || t > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("U: ");
+            scanf(" %c", &u);
+            if (u < 'A' || u > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("V: ");
+            scanf(" %c", &v);
+            if (v < 'A' || v > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("W: ");
+            scanf(" %c", &w);
+            if (w < 'A' || w > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("X: ");
+            scanf(" %c", &x);
+            if (x < 'A' || x > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("Y: ");
+            scanf(" %c", &y);
+            if (y < 'A' || y > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+            printf("Z: ");
+            scanf(" %c", &z);
+            if (z < 'A' || z > 'Z')
+            {
+                printf("\nUnknown Input\n\n");
+                return 0;
+            }
+            printf("\n");
+                   
+            FILE *input;
+            FILE *output;
+            input = fopen("input.txt", "r");
+            output = fopen("output.txt", "w");
+            if(input == NULL) 
+            {
+                perror("fopen()");
+                return 1;
+            }
+            if (output == NULL)
+            {
+                perror("fopen()");
+                return 1; 
+            }
+            while (feof(input) == 0)
+            {
+                char letter = 0, letter1 = 0;
+                fscanf(input, "%c", &letter);
+                letter1 = letter;
+                if (letter < 'A' || letter > 'Z')
+                {
+                    letter = letter1;
+                }
+                if (letter1 == 'A') //Assigning each letter to what is is subsituted to from the use inputed key
+                {
+                    letter = a;    
+                }
+                if (letter1 == 'B')
+                {
+                    letter = b;    
+                }
+                if (letter1 == 'C')
+                {
+                    letter = c;    
+                }
+                if (letter1 == 'D')
+                {
+                    letter = d;    
+                }
+                if (letter1 == 'E')
+                {
+                    letter = e;    
+                }
+                if (letter1 == 'F')
+                {
+                    letter = f;    
+                }
+                if (letter1 == 'G')
+                {
+                    letter = g;    
+                }
+                if (letter1 == 'H')
+                {
+                    letter = h;    
+                }
+                if (letter1 == 'I')
+                {
+                    letter = i;    
+                }
+                if (letter1 == 'J')
+                {
+                    letter = j;    
+                }
+                if (letter1 == 'K')
+                {
+                    letter = k;    
+                }
+                if (letter1 == 'L')
+                {
+                    letter = l;    
+                }
+                if (letter1 == 'M')
+                {
+                    letter = m;    
+                }
+                if (letter1 == 'N')
+                {
+                    letter = n;    
+                }
+                if (letter1 == 'O')
+                {
+                    letter = o;    
+                }
+                if (letter1 == 'P')
+                {
+                    letter = p;    
+                }
+                if (letter1 == 'Q')
+                {
+                    letter = q;    
+                }
+                if (letter1 == 'R')
+                {
+                    letter = r;    
+                }
+                if (letter1 == 'S')
+                {
+                    letter = s;    
+                }
+                if (letter1 == 'T')
+                {
+                    letter = t;    
+                }
+                if (letter1 == 'U')
+                {
+                    letter = u;    
+                }
+                if (letter1 == 'V')
+                {
+                    letter = v;    
+                }
+                if (letter1 == 'W')
+                {
+                    letter = w;    
+                }
+                if (letter1 == 'X')
+                {
+                    letter = x;    
+                }
+                if (letter1 == 'Y')
+                {
+                    letter = y;    
+                }
+                if (letter1 == 'Z')
+                {
+                    letter = z;    
+                }
+            printf("%c", letter);
+            fprintf(output, "%c", letter);
+            }
+        printf("\n\n");
         }
         
         if (firstchoice == 6)
@@ -631,6 +912,7 @@ int main()
         if (firstchoice != 1 && firstchoice != 2 && firstchoice != 3 && firstchoice != 4 && firstchoice != 5 && firstchoice != 6)
         {
             printf("\nUnknown input\n\n");
+            return 0;
         }
     return 0;
 }
