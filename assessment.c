@@ -674,7 +674,7 @@ int main()
                 return 0;
             }
             printf("\n");
-            printf("O ");
+            printf("O: ");
             scanf(" %c", &o);
             if (o < 'A' || o > 'Z')
             {
@@ -793,66 +793,98 @@ int main()
                 if (letter < 'A' || letter > 'Z')
                 {
                     letter = letter1;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
-                if (letter1 == 'A') //Assigning each letter to what is is subsituted to from the use inputed key
+                if (letter1 == a) //Assigning each letter to what is is subsituted to from the use inputed key
                 {
-                    letter = a;    
+                    letter = a;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'B')
                 {
-                    letter = b;    
+                    letter = b;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'C')
                 {
-                    letter = c;    
+                    letter = c;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'D')
                 {
-                    letter = d;    
+                    letter = d;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'E')
                 {
-                    letter = e;    
+                    letter = e;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'F')
                 {
-                    letter = f;    
+                    letter = f;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'G')
                 {
-                    letter = g;    
+                    letter = g;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'H')
                 {
-                    letter = h;    
+                    letter = h;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'I')
                 {
-                    letter = i;    
+                    letter = i;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'J')
                 {
-                    letter = j;    
+                    letter = j;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'K')
                 {
-                    letter = k;    
+                    letter = k;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'L')
                 {
-                    letter = l;    
+                    letter = l;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'M')
                 {
-                    letter = m;    
+                    letter = m;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'N')
                 {
-                    letter = n;    
+                    letter = n;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'O')
                 {
-                    letter = o;    
+                    letter = o;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'P')
                 {
@@ -860,46 +892,64 @@ int main()
                 }
                 if (letter1 == 'Q')
                 {
-                    letter = q;    
+                    letter = q;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'R')
                 {
-                    letter = r;    
+                    letter = r;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'S')
                 {
-                    letter = s;    
+                    letter = s;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'T')
                 {
-                    letter = t;    
+                    letter = t;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'U')
                 {
-                    letter = u;    
+                    letter = u;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'V')
                 {
-                    letter = v;    
+                    letter = v;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'W')
                 {
-                    letter = w;    
+                    letter = w;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'X')
                 {
-                    letter = x;    
+                    letter = x;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'Y')
                 {
-                    letter = y;    
+                    letter = y;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'Z')
                 {
-                    letter = z;    
+                    letter = z;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
-            printf("%c", letter);
-            fprintf(output, "%c", letter);
             }
         printf("\n\n");
         }
