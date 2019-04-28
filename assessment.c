@@ -796,7 +796,7 @@ int main()
                     printf("%c", letter);
                     fprintf(output, "%c", letter);
                 }
-                if (letter1 == a) //Assigning each letter to what is is subsituted to from the use inputed key
+                if (letter1 == 'A') //Assigning each letter to what is is subsituted to from the use inputed key
                 {
                     letter = a;
                     printf("%c", letter);
@@ -888,7 +888,9 @@ int main()
                 }
                 if (letter1 == 'P')
                 {
-                    letter = p;    
+                    letter = p;
+                    printf("%c", letter);
+                    fprintf(output, "%c", letter);
                 }
                 if (letter1 == 'Q')
                 {
