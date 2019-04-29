@@ -4,7 +4,7 @@ rotation or substitution cipher*/
 will return '1'*/
 /*This code will only encrypt/decrypt UPPER CASE letters. any letter/number/character
 will not have any encyption/decryption applied to them and will just be printed to the output file and 
-stdoutput.
+stdoutput.*/
 /*STEP 1:
 Type/copy a message to the input.txt file in the Assessment-Project-1 folder
 it doesnt matter whether it needs to be encrypted or decrypted
@@ -150,10 +150,10 @@ int main()
             }
             printf("\n\n");
         }      
-        if (firstchoice == 3)
+        if (firstchoice == 3)//Decryption key unknown. This is a brute froce attack printing all 26 possiblilites
         {
             printf("\n");
-            int i = 0; //i is a counter for the brute force decryption
+            int i; //i is a counter for the brute force decryption
             FILE *input;
             FILE *output;
             input = fopen("input.txt", "r");
@@ -168,7 +168,7 @@ int main()
                 perror("fopen()");
                 return 1;
             }
-            for (i; i < 26; i++) 
+            for (i = 0; i < 26; i++) 
             //Will print every possible decryption as a key of '26' is the same as a key of '0' that is why it is not tested
             {
                 printf("Key used for Decryption: %d\n", i); 
@@ -202,9 +202,10 @@ int main()
         }
         
     /*      SUBSTITUTION CIPHER     */      
-    if (firstchoice == 4)
+    if (firstchoice == 4) // Substitution encryption key known
     {
         char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+        //Each letter represents the subsitution key for its respecitve UPPER CASE letter when read from the user
             printf("\nType Substitution Key for each letter:\n");
             printf("A: ");
             scanf(" %c", &a);
@@ -440,7 +441,7 @@ int main()
                     printf("%c", letter);
                     fprintf(output, "%c", letter);
                 }
-                if (letter1 == 'A') //Assigning each letter to what is is subsituted to from the use inputed key
+                if (letter1 == 'A') //Assigning each letter to what is is subsituted to from the user inputed key
                 {
                     letter = a;
                     printf("%c", letter);
@@ -600,17 +601,17 @@ int main()
         printf("\n\n");            
     }
     
-    if (firstchoice == 5) 
+    if (firstchoice == 5)//Substitution encryption with a random key 
     {
         printf("\n");
         char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
         srand(time(0));
-        //generates a random set of numbers  [65,90] every tme the code is run
+        //generates a random set of numbers every time the code is run
         //this number is assigned to each variable [a,z]
         //and then assigned to each letter in the input file as its substitution
             
         a = rand() % 26 + 65; //Adding 65 so that the numbers correspond with 'A' to 'Z' in the ascii table
-        b = rand() % 26 + 65;
+        b = rand() % 26 + 65; // i.e. making the number between 65 and 90
         c = rand() % 26 + 65;
         d = rand() % 26 + 65;
         e = rand() % 26 + 65;
@@ -635,6 +636,13 @@ int main()
         x = rand() % 26 + 65;
         y = rand() % 26 + 65;
         z = rand() % 26 + 65;
+        /*The next 200 lines of code ensure that the random number assigned to each variable is unique
+        thereby ensuring that each letter gets a unique substitution.
+        it does this by adding 1 to the number until it reaches a number that is unique between '65' and '90'.
+        It does this by testing each varibale with every other variable 'a' to 'z' exluding the one being tested.
+        There are also an error test to ensure the number stays between '65' and '90' 
+        by minusing 26 from the number if it exceeds '90'*/
+       
         while (b == a || b == c || b == d || b == e || b == f || b == g || b == h || b == i || b == j || b == k || b == l || b == m || b == n || b == o || b == p || b == q || b == r || b == s || b == t || b == u || b == v || b == w || b == x || b == y || b == z)
         {
             b = b + 1;
@@ -836,10 +844,11 @@ int main()
             }
         }
 
-        printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n", a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z);
-        //used to see what the random numbers are for testing
+        // printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n", a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z);
+        /*used to see what the random numbers are for testing.
+        Will add to comments for final product*/
                 
-        printf("\n");
+        printf("\n"); //formatting
         FILE *input;
         FILE *output;
         input = fopen("input.txt", "r");
@@ -861,7 +870,7 @@ int main()
             letter1 = letter;
             if (letter < 'A' || letter > 'Z')
             {
-            letter = letter1;
+            letter = letter1; //character is unchanged outside of the range 'A' to 'Z'
             }
             if (letter1 == 'A')
             {
@@ -969,11 +978,12 @@ int main()
             }
         printf("%c", letter);
         fprintf(output, "%c", letter);
+        //This letter is then printed to stdoutput and the file output.txt
         }
-        printf("\n\n");
+        printf("\n\n");//formatting
     }
         
-        if (firstchoice == 5)
+        if (firstchoice == 6)//Substituion decrpytion key known 
         {
             char a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
             printf("\nType Substitution Key for each letter:\n");
@@ -1371,13 +1381,14 @@ int main()
         printf("\n\n");
         }
         
-        if (firstchoice == 6)
+        if (firstchoice == 7)//Substitution Decryption
         {
-            printf("\nThis is currently not available\n\n");
+            printf("\nThis is currently unavailable\n\n");
         }
         
-        if (firstchoice != 1 && firstchoice != 2 && firstchoice != 3 && firstchoice != 4 && firstchoice != 5 && firstchoice != 6)
+        if (firstchoice != 1 && firstchoice != 2 && firstchoice != 3 && firstchoice != 4 && firstchoice != 5 && firstchoice != 6 && firstchoice !=7)
         {
+            //This is input error protection
             printf("\nUnknown input\n\n");
             return 0;
         }
