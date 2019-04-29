@@ -2,12 +2,17 @@
 rotation or substitution cipher*/
 /*Any input errors will return a '0' while any file reading/writing errors 
 will return '1'*/
+/*This code will only encrypt/decrypt UPPER CASE letters. any letter/number/character
+will not have any encyption/decryption applied to them and will just be printed to the output file and 
+stdoutput.
 /*STEP 1:
-Type a meesage to the input.txt file in the Assessment-Project-1 folder
-it doesnt matter whether it needs to be 
-encrypted or decrypted
-However this message must be in 'ALL CAPS'*/
+Type/copy a message to the input.txt file in the Assessment-Project-1 folder
+it doesnt matter whether it needs to be encrypted or decrypted
+However this message must be in 'ALL CAPS'.
+As previously stated any character outside the ASCII range 'A' - 'Z'
+will not change*/
 /*STEP 2:
+Run the code in the compiler, where the menu screen will be displayed
 The compiler will read your choice from the menu screen*/
 /*STEP 3:
 The final message will be printed to both the output.txt file and the
@@ -21,12 +26,16 @@ terminal interface*/
 #include <time.h>
 /*Not all of these libraries are used but i have included them incase
 i wanted to make adjustments to my code*/
+/*the int 'k' will be the variable in which the key is stored should it be needed*/
+/*the int 'i' is used as a counter*/
+/*the char 'c' and 'c1' for roation and 'letter' and 'letter1' for substitution are used 
+to store the character read from the file 'input.txt'*/
  
 
 
 int main()
 {
-    int firstchoice; // decides what code is run
+    int firstchoice; // the variable which is read and determines what code is run
     printf("        -------CIPHER-------\n");
     printf("    Rotation - Encryption (1)\n");
     printf("    Rotation - Decryption [Key Known] (2)\n");
@@ -42,33 +51,35 @@ int main()
     /*         ROTATION CIPHER             */
         if (firstchoice == 1) //runs encryption
         {
-            int k;
+            int k; //this is the numerical value between [0,26] which will determine how far the message is rotated
             printf("\nEnter encryption key [0 to 26]: ");
-            //This will determine how much the message is rotated
             scanf("%d", &k);
             if (k != 0 && k != 1 && k != 2 && k != 3 && k != 4 && k != 5 && k != 6 && k != 7 && k != 8 && k != 9 && k != 10 && k != 11 && k != 12 && k != 13 && k != 14 && k != 15 && k != 16 && k != 17 && k != 18 && k != 19 && k != 20 && k != 21 && k != 22 && k != 23 && k != 24 && k != 25 && k != 26)
             {
-                printf("\nUnknown Input\n\n");
+                printf("\nUnknown Input\n\n"); 
+                /*This is input error testing. 
+                Another way would be to use the 
+                modulus of the abs(k) forcing the number to be between 0 and 26*/
                 return 0;
             }
             printf("\n"); // this is for formatting
             FILE *input;
             FILE *output;
-            input = fopen("input.txt", "r"); //Will read from the file input.txt
-            output = fopen("output.txt", "w"); //Will write to the file output.txt
-            if(input == NULL)  //This is a safety net incase its reads from the file incorrectly
+            input = fopen("input.txt", "r"); //Will read the message from the file input.txt
+            output = fopen("output.txt", "w"); //Will write the message to the file output.txt
+            if(input == NULL)  //This is a safety net incase its reads the file 'input.txt' incorrectly
             {
                 perror("fopen()");
                 return 1;
             }
-            if (output == NULL) //This is a safety net incase its reads from the file incorrectly
+            if (output == NULL) //This is a safety net incase its reads the 'output.txt' file incorrectly
             {
                 perror("fopen()");
                 return 1;
             }
-            while (feof(input) == 0)
+            while (feof(input) == 0) //Will read until the end of file as this will return a 1.
             {
-                char c, c1;
+                char c, c1; //c1 is used as manipulated will be done on the variable c. They are equal before any key is applied
                 fscanf(input, "%c", &c); //reads each letter from the file input and stores it in c
                 c1 = c;
                 if (c >= 'A' && c <= 'Z')
@@ -77,7 +88,7 @@ int main()
                 }
                 if ( (c1+k) >= '[')
                 {
-                    c = c - 26; // loops the encryption back to 'A'
+                    c = c - 26; // loops the encryption back to 'A' if the letter with the encyption applied goes over the value of 'Z'
                 }
                 if (c1 < 'A' || c1 > 'Z')
                 {
@@ -87,16 +98,19 @@ int main()
                 fprintf(output, "%c", c);
                 /* Prints the message to both the concsole and to the file output*/
             }
-            printf("\n\n");
+            printf("\n\n"); //formating 
         }
-        if (firstchoice == 2)//runs decryption
+        if (firstchoice == 2)//runs decryption [key known]
         {
-            int k;
+            int k; //Read from the user determines the decryption of the message 
             printf("\nWhat is the decryption key [0-26]: ");
-            scanf("%d", &k);
+            scanf("%d", &k); //another input is read from the user
             if (k != 0 && k != 1 && k != 2 && k != 3 && k != 4 && k != 5 && k != 6 && k != 7 && k != 8 && k != 9 && k != 10 && k != 11 && k != 12 && k != 13 && k != 14 && k != 15 && k != 16 && k != 17 && k != 18 && k != 19 && k != 20 && k != 21 && k != 22 && k != 23 && k != 24 && k != 25 && k != 26)
             {
                 printf("Unkown Input\n");
+                /*This is input error testing. 
+                Another way would be to use the 
+                modulus of the abs(k) forcing the number to be between 0 and 26*/
                 return 0;
             }
             printf("\n");
@@ -139,7 +153,7 @@ int main()
         if (firstchoice == 3)
         {
             printf("\n");
-            int i = 0; //i is a counter
+            int i = 0; //i is a counter for the brute force decryption
             FILE *input;
             FILE *output;
             input = fopen("input.txt", "r");
@@ -154,10 +168,12 @@ int main()
                 perror("fopen()");
                 return 1;
             }
-            for (i; i < 26; i++) //Will print every possible decryption as a key of '26' is the same as a key of '0'
+            for (i; i < 26; i++) 
+            //Will print every possible decryption as a key of '26' is the same as a key of '0' that is why it is not tested
             {
-                printf("Key used for Decryption: %d\n", i);
+                printf("Key used for Decryption: %d\n", i); 
                 fprintf(output, "Key used for Decryption: %d\n", i);
+                //Lets you know which decryption key worked
                 rewind(input);
                 while (feof(input) == 0)
                 {
